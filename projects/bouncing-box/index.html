@@ -9,12 +9,13 @@
 		.box {
 			width: 70px;
 			height: 70px;
-			background-color: teal;
+			background-color: chartreuse;
 			font-size: 300%;
 			text-align: center;
 			user-select: none;
 			display: block;
 			position: absolute;
+			color: black;
 			top: 100px;
 			/* Change me! */
 			left: 0px;
@@ -66,8 +67,9 @@
 			//////////////////////////////////////////////////////////////////
 
 			// TODO 2 - Variable declarations 
-
-
+			var positionX = 0
+			var points = 0
+			var speed = 10
 
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
@@ -75,8 +77,15 @@
 			turn it around! 
 			*/
 			function update() {
+				positionX = positionX + speed
+				console.log(positionX)
+				moveBoxTo(positionX)
 
+				if(positionX > boardWidth){ //keeping box from leaving right
+					speed = speed * - 1
+				}
 
+				//keep bpx from leaving left
 			};
 
 			/* 
@@ -85,8 +94,10 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-
-
+				positionX = 0 // resets box to left side on click
+				points = points + 1 //updates points by + 1 on click
+				changeBoxText(points) // changes box text
+				speed = speed + 3 //increases speed on click
 			};
 
 
