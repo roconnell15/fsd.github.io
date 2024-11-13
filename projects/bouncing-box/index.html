@@ -6,6 +6,9 @@
 	<title>Bouncing Box</title>
 	<script src="jquery.min.js"></script>
 	<style>
+		body{
+			background-color: black;
+		}
 		.box {
 			width: 70px;
 			height: 70px;
@@ -81,12 +84,13 @@
 				console.log(positionX)
 				moveBoxTo(positionX)
 
-				if(positionX > boardWidth){ //keeping box from leaving right
-					speed = speed * - 1
+				if(positionX > boardWidth){ //checks for positionX leaving the right side
+					speed = speed * -1
 				}
-
-				//keep bpx from leaving left
-			};
+				if(positionX < 0){ //Add another condition to check if the position is less than 0
+					speed = speed * -1
+				}
+				};
 
 			/* 
 			This Function will be called each time the box is clicked. Each time it is called,
@@ -97,7 +101,7 @@
 				positionX = 0 // resets box to left side on click
 				points = points + 1 //updates points by + 1 on click
 				changeBoxText(points) // changes box text
-				speed = speed + 3 //increases speed on click
+				speed = speed + 3 //increases the speed by 3 with each click
 			};
 
 
