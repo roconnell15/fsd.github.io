@@ -20,13 +20,22 @@ var init = function (window) {
         ////////////////////////////////////////////////////////////
         
         // TODO 1 : Declare and initialize our variables
-
+var circle;
+var circles = []
+var maxCircles = 100
 
         // TODO 2 : Create a function that draws a circle 
-        
+        function drawCircle(){
+            circle = draw.randomCircleInArea(canvas, true, true, "#999", 2);
+            physikz.addRandomVelocity(circle, canvas, 5, 5);
+            view.addChild(circle);
+            circles.push(circle);
+        }
 
         // TODO 3 / 7 : Call the drawCircle() function 
-
+        for(var x = 0; x <= maxCircles; x++){
+            drawCircle();
+        }
 
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM LOGIC ////////////////////////////

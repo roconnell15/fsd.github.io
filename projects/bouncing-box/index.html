@@ -79,6 +79,8 @@
 			it should move the Box to a new location. If the box drifts off the screen
 			turn it around! 
 			*/
+
+
 			function update() {
 				positionX = positionX + speed
 				console.log(positionX)
@@ -87,7 +89,7 @@
 				if(positionX > boardWidth){ //checks for positionX leaving the right side
 					speed = speed * -1
 				}
-				if(positionX < 0){ //Add another condition to check if the position is less than 0
+				if(positionX < 0){ //checks for positionX leaving the left side
 					speed = speed * -1
 				}
 				};
@@ -104,7 +106,7 @@
 				speed = speed + 3 //increases the speed by 3 with each click
 			};
 
-
+					
 
 
 
