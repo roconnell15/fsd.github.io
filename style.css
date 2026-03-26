@@ -1,0 +1,298 @@
+/* ========================================
+   Global Styles & Theme
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-green: #2c5f2d;
+    --accent-orange: #ff8c00;
+    --light-bg: #f0f8f0;
+    --text-dark: #1a1a1a;
+    --text-light: #555;
+    --border-color: #e0e0e0;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--light-bg) 0%, #e8f5e9 100%);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding-bottom: 40px;
+}
+
+/* ========================================
+   Navigation Bar
+   ======================================== */
+
+nav.nav-section {
+    background: linear-gradient(135deg, var(--primary-green) 0%, #1e4620 100%);
+    padding: 0;
+    margin: 0;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav.nav-section ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav.nav-section li {
+    color: white;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+nav.nav-section li:first-child {
+    margin-right: auto;
+}
+
+nav.nav-section a,
+nav.nav-section .nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+nav.nav-section a:hover,
+nav.nav-section .nav-link:hover {
+    background: var(--accent-orange);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   Main Content Area
+   ======================================== */
+
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+main h1 {
+    color: var(--primary-green);
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+main h2 {
+    color: var(--primary-green);
+    font-size: 1.8em;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid var(--accent-orange);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+/* ========================================
+   Gallery Page Specific Styles
+   ======================================== */
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.gallery-header h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+}
+
+.gallery-header p {
+    font-size: 1.2em;
+    color: var(--text-light);
+}
+
+.gallery-main {
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   Content Sections
+   ======================================== */
+
+.contents {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin: 30px 0;
+}
+
+.contents ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.contents li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.contents li:last-child {
+    border-bottom: none;
+}
+
+.contents li:hover {
+    padding-left: 10px;
+    background: var(--light-bg);
+}
+
+.contents a {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.contents a:hover {
+    color: var(--accent-orange);
+}
+
+.contents a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--accent-orange);
+    transition: width 0.3s ease;
+}
+
+.contents a:hover::after {
+    width: 100%;
+}
+
+/* ========================================
+   Sidebar
+   ======================================== */
+
+.sidebar {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-top: 30px;
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+
+@media (max-width: 768px) {
+    main {
+        margin: 20px auto;
+    }
+
+    main h1 {
+        font-size: 2em;
+    }
+
+    main h2 {
+        font-size: 1.5em;
+    }
+
+    nav.nav-section ul {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 15px;
+    }
+
+    nav.nav-section li:first-child {
+        margin-right: 0;
+    }
+
+    .gallery-header {
+        padding: 20px;
+    }
+
+    .gallery-header h1 {
+        font-size: 2em;
+    }
+
+    .gallery-header p {
+        font-size: 1em;
+    }
+
+    .contents {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    main h1 {
+        font-size: 1.6em;
+    }
+
+    main h2 {
+        font-size: 1.3em;
+    }
+
+    nav.nav-section ul {
+        padding: 10px;
+    }
+
+    nav.nav-section a,
+    nav.nav-section .nav-link {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+
+    .gallery-header h1 {
+        font-size: 1.8em;
+    }
+
+    .contents {
+        padding: 15px;
+    }
+
+    .contents li {
+        padding: 10px 0;
+        font-size: 0.95em;
+    }
+}
